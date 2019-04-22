@@ -25,7 +25,7 @@ resource "google_compute_instance" "app" {
 
   metadata {
     # путь до публичного ключа
-    ssh-keys = "{var.public_key_path}"
+    ssh-keys = "sasha:${file({var.public_key_path})}"
   }
 
   # определение сетевого интерфейса
@@ -39,7 +39,7 @@ resource "google_compute_instance" "app" {
 
   connection {
     type        = "ssh"
-    user        = "sasha"
+    user        = "appuser"
     agent       = false
     private_key = "${file(var.private_key_path)}"
   }
