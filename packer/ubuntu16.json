@@ -1,4 +1,5 @@
-{  "builders": [
+{  
+"builders": [
         {
             "type": "googlecompute",
             "project_id": "{{user `project_id_infra`}}",
