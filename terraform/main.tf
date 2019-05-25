@@ -1,9 +1,10 @@
 terraform {
-   required_version = "0.11.11" # Версия terraform # 
+# Версия terraform required_version = "0.11.7" 
 }
 
 provider "google" {
-  version = "2.0.0" # Версия провайдера
+# Версия провайдера
+  version = "2.0.0" 
 
   # ID проекта
   project = "${var.project}"
@@ -25,7 +26,7 @@ resource "google_compute_instance" "app" {
 
   metadata {
     # путь до публичного ключа  
-    ssh-keys = "sasha:${file(var.public_key_path)}"
+    ssh-keys = "appuser:${file("~/.ssh/appuser.pub")}"
   }
 
   # определение сетевого интерфейса
@@ -41,7 +42,7 @@ resource "google_compute_instance" "app" {
     type        = "ssh"
     user        = "appuser"
     agent       = false
-    private_key = "${file(var.private_key_path)}"
+    private_key = "${file("~/.ssh/appuser")}"
   }
 
   provisioner "file" {
