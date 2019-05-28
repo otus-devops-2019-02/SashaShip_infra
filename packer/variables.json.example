@@ -1,7 +1,5 @@
- {
-            "project_id": "infra-12345",
-            "source_image_family": "ubuntu-1604-lts",
-            "ssh_username": "test",
-            "machine_type": "f1-micro"
-        }
-
+{
+    		"project_id_infra": "infra-237610",
+    		"source_image_family_infra":"ubuntu-1604-lts",
+	    	"machine_type_infra": "f1-micro"
+}
