@@ -1,0 +1,25 @@
+{
+    "builders": [
+        {
+            "type": "googlecompute",
+            "project_id": "{{ user `project_id` }}",
+            "image_name": "reddit-app-base-{{timestamp}}",
+            "image_family": "reddit-app-base",
+            "source_image_family": "reddit-base",
+            "zone": "europe-west1-b",
+            "ssh_username": "{{ user `ssh_username`}}",
+            "machine_type": "{{ user `machine_type`}}",
+            "image_description": "Base image with reddit app",
+            "disk_size": "10",
+            "disk_type": "pd-standard",
+            "network": "default",
+            "tags": "app-server"
+        }
+    ],
+    "provisioners": [
+        {
+         "type": "ansible",
+         "playbook_file": "ansible/playbooks/packer_app.yml"
+        }
+    ]
+}
