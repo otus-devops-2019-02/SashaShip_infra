@@ -1,5 +1,5 @@
 {
-    		"project_id_infra": "infra-237610",
+    		"project_id": "infra-237610",
     		"source_image_family_infra":"ubuntu-1604-lts",
 		"ssh_username": "test",
               	"machine_type_infra": "f1-micro"
