@@ -1,9 +1,4 @@
 {
-    "variables": {
-    		"project_id_infra": "infra-237610",
-    		"source_image_family_infra":"ubuntu-1604-lts",
-		"machine_type_infra": "f1-micro"
- 	 },
     "builders": [
         {
             "type": "googlecompute",
