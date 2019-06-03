@@ -15,12 +15,6 @@
             "network": "default",
             "tags": "db-server"
         }
-    ],
-    "provisioners": [
-        {
-           "type": "ansible",
-           "playbook_file": "ansible/playbooks/packer_db.yml"
-        }
-    ]    
+    ]
 }
 
