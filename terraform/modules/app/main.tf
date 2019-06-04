@@ -19,7 +19,7 @@ resource "google_compute_instance" "app" {
   }
 
   metadata {
-    ssh-keys = "1:${file(var.public_key_path)}"
+    ssh-keys = "sasha:${file(var.public_key_path)}"
   }
 }
 
@@ -33,7 +33,6 @@ resource "google_compute_firewall" "firewall_puma" {
 
   allow {
     protocol = "tcp"
-
     ports = ["9292"]
   }
 
