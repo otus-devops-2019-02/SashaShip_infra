@@ -15,5 +15,11 @@
             "network": "default",
             "tags": "app-server"
         }
-]   
+],
+  "provisioners": [
+      {
+         "type": "ansible",
+         "playbook_file": "ansible/packer_app.yml"
+      }
+                  ]   
 }
