@@ -1,4 +1,4 @@
- name: Add APT key
+- name: Add APT key
   apt_key:
     id: "EA312927"
     keyserver: keyserver.ubuntu.com
