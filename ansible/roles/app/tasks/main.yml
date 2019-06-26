@@ -21,3 +21,7 @@
 
 - name: enable puma
   systemd: name=puma enabled=yes
+
+
+- include: ruby.yml
+- include: puma.yml
