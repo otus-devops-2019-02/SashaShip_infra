@@ -3,6 +3,8 @@
   hosts: all
   become: true
   tasks:
+  - name: DELETE list lock
+    shell: rm /var/lib/apt/lists/lock
   # Установим в цикле все зависимости
   - name: Install ruby and rubygems and required packages
     apt: "name={{ item }} state=present"

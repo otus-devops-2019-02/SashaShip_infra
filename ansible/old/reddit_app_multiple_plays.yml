@@ -21,7 +21,7 @@
   tags: app-tag
   become: true
   vars:
-   db_host: 35.233.20.201
+   db_host: 10.156.15.207
   tasks:
     - name: Add unit file for Puma
       copy:
@@ -32,9 +32,9 @@
     - name: Add config for DB connection
       template:
         src: templates/db_config.j2
-        dest: /home/sasha/db_config
-        owner: sasha
-        group: sasha
+        dest: /home/1/db_config
+        owner: 1
+        group: 1
 
     - name: enable puma
       systemd: name=puma enabled=yes
@@ -50,14 +50,14 @@
     - name: Fetch the latest version of application code
       git:
         repo: 'https://github.com/express42/reddit.git'
-        dest: /home/sasha/reddit
+        dest: /home/1/reddit
         version: monolith
       notify: restart puma
 
     - name: bundle install
       bundler:
         state: present
-        chdir: /home/sasha/reddit
+        chdir: /home/1/reddit
 
   handlers:
   - name: restart puma

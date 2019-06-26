@@ -3,7 +3,7 @@
   hosts: all
   vars:
     mongo_bind_ip: 0.0.0.0 # <-- Переменная задается в блоке vars
-    db_host: 35.233.20.201 # <-- подставьте сюда ваш IP
+    db_host: 10.156.15.205 # <-- подставьте сюда ваш IP
   tasks:
     - name: Change mongo config file
       become: true # <-- Выполнить задание от root
@@ -27,7 +27,7 @@
     - name: Add config for DB connection
       template:
         src: templates/db_config.j2
-        dest: /home/sasha/db_config
+        dest: /home/1/db_config
       tags: app-tag
     - name: enable puma
       become: true
@@ -36,14 +36,14 @@
     - name: Fetch the latest version of application code
       git:
         repo: 'https://github.com/express42/reddit.git'
-        dest: /home/sasha/reddit
+        dest: /home/1/reddit
         version: monolith # <-- Указываем нужную ветку
       tags: deploy-tag
       notify: reload puma
     - name: Bundle install
       bundler:
         state: present
-        chdir: /home/sasha/reddit # <-- В какой директории выполнить команду bundle
+        chdir: /home/1/reddit # <-- В какой директории выполнить команду bundle
       tags: deploy-tag
 
   handlers:
@@ -53,4 +53,5 @@
     - name: reload puma
       become: true
       systemd: name=puma state=restarted
+
 
